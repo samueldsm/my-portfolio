@@ -46,7 +46,7 @@ const Navbar = () => {
         Samuel Santiesteban
       </h1>
       <h2 className="text-xl mb-4">Junior Frontend Engineer</h2>
-      <p className="mb-8 max-w-sm">
+      <p className="mb-8 max-w-sm  text-[#94a3b8]">
         Specializing in developing interactive web applications, with a focus on
         creating seamless user experiences through thoughtful design and clean
         code.

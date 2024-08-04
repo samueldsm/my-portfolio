@@ -5,6 +5,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 import { Providers } from './providers'
+import LuminousPointerEffect from '@/components/common/Pointer/LuminousPointer/LuminousPointerEffect'
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -36,9 +37,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-[#0a192f]">
+      <body className="bg-[#0f172a]">
         <Providers>
-          <main className={`${inter.className}`}>{children}</main>
+          <main className={`${inter.className}`}>
+            {children}
+            <div className="luminous-pointer" />
+            <LuminousPointerEffect />
+          </main>
         </Providers>
       </body>
     </html>
