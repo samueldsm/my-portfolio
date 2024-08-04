@@ -6,7 +6,11 @@ interface CustomLinkProps {
 }
 
 const CustomLink = ({ href, children }: CustomLinkProps) => {
-  return <Link href={href}>{children}</Link>
+  return (
+    <Link href={href} target="_blank" rel="noopener noreferrer">
+      {children}
+    </Link>
+  )
 }
 
 export default CustomLink

@@ -1,6 +1,12 @@
 import Link from 'next/link'
+
 import { Card } from '@nextui-org/react'
+
+import { FiExternalLink } from 'react-icons/fi'
+
 import HeadingText from '@/components/common/Title/HeadingText'
+import Skills from '@/components/common/Skills/Skills'
+
 interface ILink {
   name: string
   url: string
@@ -64,7 +70,7 @@ const experiences: Experience[] = [
     company: { name: 'UCI', url: 'https://www.uci.cu/' },
     description:
       'Instructed on SQL database optimization and decision-making processes: Developed curriculum focused on ETL processes, data analysis, and report creation Taught advanced SQL optimization techniques including indexing and query optimization Introduced NoSQL concepts, with a focus on MongoDB Emphasized database design principles for improved efficiency and performance.',
-    skills: ['PostgreSQL', 'MongoDB', 'JavaScript', 'MusicKit.js']
+    skills: ['PostgreSQL', 'MongoDB', 'MySQL']
   }
 ]
 
@@ -75,18 +81,22 @@ const SectionExperience = () => {
       {experiences.map((exp, index) => (
         <Card key={index} className="bg-[#112240] mb-8 p-6">
           <p className="text-[#8892b0] mb-2">{exp.period}</p>
-          <h3 className="text-white mb-1">
+          <h3 className="text-white mb-1 flex flex-wrap">
             {exp.title} {` · `}
-            <Link href={exp.company.url} className="text-[#64ffda]">
+            <Link
+              href={exp.company.url}
+              className="text-[#64ffda] flex flex-row ps-1 gap-2 items-center hover:text-[#50ccaf]"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {exp.company.name}
+              <FiExternalLink size={16} />
             </Link>
           </h3>
-          <p className="mb-4">{exp.description}</p>
+          <p className="mb-4 text-[#94a3b8]">{exp.description}</p>
           <div className="flex flex-wrap gap-2 mb-4">
             {exp.skills.map((skill, i) => (
-              <span key={i} className="bg-[#233554] px-2 py-1 rounded text-sm">
-                {skill}
-              </span>
+              <Skills key={i} skill={skill} />
             ))}
           </div>
           {exp.links && (

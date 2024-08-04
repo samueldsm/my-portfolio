@@ -1,7 +1,7 @@
-import Link from 'next/link'
 import Image from 'next/image'
-import { Card } from '@nextui-org/react'
+import { Card, Link } from '@nextui-org/react'
 import HeadingText from '@/components/common/Title/HeadingText'
+import Skills from '@/components/common/Skills/Skills'
 
 interface Project {
   year: string
@@ -45,25 +45,20 @@ const SectionProjects = () => {
       <div className="grid grid-cols-1 gap-8">
         {projects.map((project, index) => (
           <Link
-            href={project.link}
             key={index}
+            href={project.link}
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Card className="bg-[#112240] p-6">
+            <Card className="p-6 bg-inherit shadow-none hover:bg-[#13233f]">
               <div className="flex justify-between items-start mb-4 flex-col md:flex-row">
                 <div>
                   <p className="text-[#64ffda] mb-2">{project.year}</p>
                   <h3 className="text-white mb-2">{project.title}</h3>
-                  <p className="mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <p className="mb-4 text-[#94a3b8]">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4 ">
                     {project.skills.map((skill, i) => (
-                      <span
-                        key={i}
-                        className="bg-[#233554] px-2 py-1 rounded text-sm"
-                      >
-                        {skill}
-                      </span>
+                      <Skills key={i} skill={skill} />
                     ))}
                   </div>
                 </div>
