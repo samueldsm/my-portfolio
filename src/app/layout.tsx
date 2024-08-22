@@ -19,7 +19,9 @@ export const metadata: Metadata = {
     'Samuel Santiesteban is a software engineer who builds accessible products and digital experiences for the web.',
   icons: {
     icon: '/favicon.ico'
-  }
+  },
+  keywords: 'frontend developer, react, next.js, portfolio, web development',
+  robots: 'index, follow'
 }
 
 export const viewport: Viewport = {
