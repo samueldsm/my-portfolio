@@ -1,15 +1,13 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import { Providers } from './providers'
+import { defaultUrl } from '@/utils'
+import LuminousPointer from '@/components/common/Pointer/LuminousPointer/LuminousPointer'
+import Navbar from '@/components/ui/Navbar/Navbar'
+import Footer from '@/components/ui/Footer/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
-
-import { Providers } from './providers'
-import LuminousPointerEffect from '@/components/common/Pointer/LuminousPointer/LuminousPointerEffect'
-
-const defaultUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : 'http://localhost:3000'
 
 export const metadata: Metadata = {
   metadataBase: new URL(defaultUrl),
@@ -21,13 +19,14 @@ export const metadata: Metadata = {
     'Samuel Santiesteban is a software engineer who builds accessible products and digital experiences for the web.',
   icons: {
     icon: '/favicon.ico'
-  }
+  },
+  keywords: 'frontend developer, react, next.js, portfolio, web development',
+  robots: 'index, follow'
 }
+
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1
-  // maximumScale: 1,
-  // userScalable: false
 }
 
 export default function RootLayout({
@@ -39,11 +38,16 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-[#0f172a]">
         <Providers>
-          <main className={`${inter.className}`}>
-            {children}
-            <div className="luminous-pointer" />
-            <LuminousPointerEffect />
-          </main>
+          <div className=" text-gray-300 min-h-screen p-0 mx-auto max-w-screen-xl flex flex-col lg:flex-row">
+            <Navbar />
+            <main
+              className={`${inter.className} w-full lg:w-1/2 ml-auto p-3 md:p-8 lg:py-24`}
+            >
+              {children}
+              <Footer />
+              <LuminousPointer />
+            </main>
+          </div>
         </Providers>
       </body>
     </html>

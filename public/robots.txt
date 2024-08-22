@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://samuelsantiesteban.vercel.app/
+
+# Sitemaps
+Sitemap: https://samuelsantiesteban.vercel.app/sitemap.xml
