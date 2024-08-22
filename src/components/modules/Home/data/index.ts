@@ -1,25 +1,40 @@
-import Link from 'next/link'
+import { Experience, Project } from '../types'
 
-import { Card } from '@nextui-org/react'
+export const projectsData: Project[] = [
+  {
+    year: '08-2024',
+    title: 'First Portfolio',
+    description: `My first personal portfolio website, built using Next.js and Tailwind CSS. This project showcases my skills, experience, and projects, providing an overview of my work and expertise.`,
+    skills: ['TypeScript', 'Next.js 14', 'NextUI', 'Tailwind CSS'],
+    image: '/assets/images/projects/first_portfolio.jpg',
+    link: 'https://samuelsantiesteban.vercel.app/'
+  },
+  {
+    year: '05-2024',
+    title: 'Dental Laboratory',
+    description: `A comprehensive web application designed for a US-based dental laboratory. This application aims to automate case number assignment by downloading the online form, thereby improving physicians' workflow, online presence, and overall efficiency through an intuitive design.`,
+    skills: ['TypeScript', 'Next.js', 'NextUI', 'Tailwind CSS', 'MongoDB'],
+    image: '/assets/images/projects/a-teeth-lab-prescription.jpg',
+    link: 'https://ateethlabprescription.vercel.app/'
+  },
+  {
+    year: '2023',
+    title: 'Manage Posts',
+    description: `This project represents my first foray into NextUI.js, where I developed a comprehensive CRUD application. It showcases my ability to manage APIs effectively and integrate Redux for state management. The application was designed to streamline content management processes, making it easier for users to create, read, update, and delete posts.`,
+    skills: [
+      'Next.js',
+      'React.js',
+      'Tailwind CSS',
+      'API',
+      'Redux',
+      'TypeScript'
+    ],
+    image: '/assets/images/projects/manage-posts.jpg',
+    link: 'https://manage-posts-eta.vercel.app/'
+  }
+]
 
-import { FiExternalLink } from 'react-icons/fi'
-
-import HeadingText from '@/components/common/Title/HeadingText'
-import Skills from '@/components/common/Skills/Skills'
-
-interface ILink {
-  name: string
-  url: string
-}
-interface Experience {
-  period: string
-  title: string
-  company: ILink
-  description: string
-  skills: string[]
-  links?: ILink[]
-}
-const experiences: Experience[] = [
+export const experiences: Experience[] = [
   {
     period: 'SEPT 2023 — PRESENT',
     title: 'Junior Frontend Engineer',
@@ -73,49 +88,3 @@ const experiences: Experience[] = [
     skills: ['PostgreSQL', 'MongoDB', 'MySQL']
   }
 ]
-
-const SectionExperience = () => {
-  return (
-    <section id="EXPERIENCE" className="mb-16">
-      <HeadingText text="Experience" />
-      {experiences.map((exp, index) => (
-        <Card key={index} className="bg-[#112240] mb-8 p-6">
-          <p className="text-[#8892b0] mb-2">{exp.period}</p>
-          <h3 className="text-white mb-1 flex flex-wrap">
-            {exp.title} {` · `}
-            <Link
-              href={exp.company.url}
-              className="text-[#64ffda] flex flex-row ps-1 gap-2 items-center hover:text-[#50ccaf]"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {exp.company.name}
-              <FiExternalLink size={16} />
-            </Link>
-          </h3>
-          <p className="mb-4 text-[#94a3b8]">{exp.description}</p>
-          <div className="flex flex-wrap gap-2 mb-4">
-            {exp.skills.map((skill, i) => (
-              <Skills key={i} skill={skill} />
-            ))}
-          </div>
-          {exp.links && (
-            <div className="flex gap-4">
-              {exp.links.map((link, i) => (
-                <Link
-                  key={i}
-                  href={link.url}
-                  className="text-[#64ffda] text-sm"
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </div>
-          )}
-        </Card>
-      ))}
-    </section>
-  )
-}
-
-export default SectionExperience
