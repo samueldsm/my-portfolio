@@ -41,7 +41,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
   return (
-    <nav className="w-full lg:w-1/2  lg:fixed lg:h-screen p-8 overflow-y-auto lg:py-24 ">
+    <nav className="w-max lg:fixed lg:h-screen p-8 overflow-y-auto lg:py-24 ">
       <h1 className="text-4xl font-bold text-white mb-2">
         Samuel Santiesteban
       </h1>
