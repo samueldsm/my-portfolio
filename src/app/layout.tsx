@@ -38,7 +38,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="bg-[#0f172a]">
         <Providers>
-          <div className=" text-gray-300 min-h-screen p-0 mx-auto max-w-screen-xl flex flex-col lg:flex-row">
+          <div className=" text-gray-300 min-h-screen p-0 mx-auto max-w-screen-2xl flex flex-col lg:flex-row">
             <Navbar />
             <main
               className={`${inter.className} w-full lg:w-1/2 ml-auto p-3 md:p-8 lg:py-24`}
