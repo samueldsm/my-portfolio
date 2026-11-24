@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: #38bdf8;
+  color: #08111f;
+}
+
+:focus-visible {
+  outline: 3px solid #38bdf8;
+  outline-offset: 4px;
+}
+
 
 .luminous-pointer {
     position: fixed;
