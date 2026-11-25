@@ -1,13 +1,5 @@
-import SectionAbout from '@/components/modules/Home/features/SectionAbout/SectionAbout'
-import SectionProjects from '@/components/modules/Home/features/SectionProjects/SectionProjects'
-import SectionExperience from '@/components/modules/Home/features/SectionExperience/SectionExperience'
+import { redirect } from 'next/navigation'
 
-export default function PortfolioPage() {
-  return (
-    <>
-      <SectionAbout />
-      <SectionExperience />
-      <SectionProjects />
-    </>
-  )
+export default function Home() {
+  redirect('/es')
 }
